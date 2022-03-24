@@ -4,7 +4,7 @@
 
 __author__ = """Cedric ROMAN"""
 __email__ = 'roman@numengo.com'
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 from simple_settings import LazySettings
 settings = LazySettings('nonosolaris.config.settings')
