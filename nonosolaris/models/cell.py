@@ -27,7 +27,7 @@ from .personas import Member, Administrator, Coordinator
 
 
 class Cell(with_metaclass(SchemaMetaclass)):
-    _id = r"https://solaris-france.org#/$defs/Cell"
+    _id = r"https://solaris-france.org/nono#/$defs/Cell"
 
     def __init__(self, cell_id, cell_dir, **kwargs):
         ObjectProtocol.__init__(self)

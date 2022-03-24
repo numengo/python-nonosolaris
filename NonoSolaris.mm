@@ -1,6 +1,6 @@
 <map version="freeplane 1.7.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node FOLDED="false" ID="ID_822712631" CREATED="1564511595253" MODIFIED="1647448197073"><richcontent TYPE="NODE">
+<node FOLDED="false" ID="ID_822712631" CREATED="1564511595253" MODIFIED="1648108899680"><richcontent TYPE="NODE">
 
 <html>
   <head>
@@ -8,24 +8,25 @@
   </head>
   <body>
     <h1>
-      Solaris
+      NonoSolaris
     </h1>
   </body>
 </html>
+
 </richcontent>
 <attribute_layout NAME_WIDTH="55.49999834597116 pt" VALUE_WIDTH="110.99999669194231 pt"/>
 <attribute NAME="cc_template" VALUE="cc-py-setup"/>
 <attribute NAME="version" VALUE="1.0.0"/>
-<attribute NAME="app_name" VALUE="solaris"/>
-<attribute NAME="ns_name" VALUE="solaris"/>
-<attribute NAME="repo_name" VALUE="python-solaris"/>
-<attribute NAME="config_name" VALUE="SolarisConfig"/>
-<attribute NAME="domain" VALUE="solaris-france.org"/>
+<attribute NAME="app_name" VALUE="nonosolaris"/>
+<attribute NAME="ns_name" VALUE="nonosolaris"/>
+<attribute NAME="repo_name" VALUE="python-nonosolaris"/>
+<attribute NAME="config_name" VALUE="NonoSolarisConfig"/>
+<attribute NAME="domain" VALUE="solaris-france.org/nono"/>
 <attribute NAME="languages" VALUE="en"/>
-<attribute NAME="keywords" VALUE="solaris, adressbook, telegram, bot, chatbot"/>
+<attribute NAME="keywords" VALUE="solaris, nono, adressbook, telegram, bot, chatbot"/>
 <attribute NAME="license" VALUE="MIT"/>
 <hook NAME="MapStyle">
-    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -130,7 +131,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<node TEXT="R&#xe9;seau d&apos;entraide d&#xe9;centralis&#xe9; et bas&#xe9; sur l&apos;humain" POSITION="right" ID="ID_439081159" CREATED="1564513063544" MODIFIED="1647397286724">
+<node TEXT="Nono, le petit robot d assistance a l entraide humaine" POSITION="right" ID="ID_439081159" CREATED="1564513063544" MODIFIED="1648108336620">
 <icon BUILTIN="idea"/>
 <edge COLOR="#7c007c"/>
 </node>
@@ -180,19 +181,13 @@
 </node>
 </node>
 <node TEXT="links" POSITION="right" ID="ID_930678574" CREATED="1647599066520" MODIFIED="1647599068730">
-<node TEXT="formulaire" FOLDED="true" ID="ID_1263666156" CREATED="1647599074965" MODIFIED="1647599080904">
+<node TEXT="formulaire" ID="ID_1263666156" CREATED="1647599074965" MODIFIED="1647599080904">
 <node TEXT="https://drive.protonmail.com/urls/M2GCP3TNKG#m2b3auTbEGlE" ID="ID_1400752253" CREATED="1647599069589" MODIFIED="1647599069589" LINK="https://drive.protonmail.com/urls/M2GCP3TNKG#m2b3auTbEGlE"/>
 <node TEXT="https://colibris.link/LFplT" ID="ID_748340759" CREATED="1647599793280" MODIFIED="1647599793280" LINK="https://colibris.link/LFplT"/>
-<node TEXT="png_2429764933073392470.png" ID="ID_1364708098" CREATED="1647599808912" MODIFIED="1647599808912">
-<hook URI="Solaris_files/png_2429764933073392470.png" SIZE="1.0" NAME="ExternalObject"/>
 </node>
-</node>
-<node TEXT="notice formulaire" FOLDED="true" ID="ID_1578612957" CREATED="1647599081355" MODIFIED="1647599086895">
+<node TEXT="notice formulaire" ID="ID_1578612957" CREATED="1647599081355" MODIFIED="1647599086895">
 <node TEXT="https://drive.protonmail.com/urls/Z7TYA1ETFM#MeNqwOLz45yx" ID="ID_196399206" CREATED="1647599102516" MODIFIED="1647599102516" LINK="https://drive.protonmail.com/urls/Z7TYA1ETFM#MeNqwOLz45yx"/>
 <node TEXT="https://colibris.link/j1kZQ" ID="ID_939428130" CREATED="1647599826781" MODIFIED="1647599828115"/>
-<node TEXT="png_3488902974897719316.png" ID="ID_842156481" CREATED="1647599838580" MODIFIED="1647599838580">
-<hook URI="Solaris_files/png_3488902974897719316.png" SIZE="1.0" NAME="ExternalObject"/>
-</node>
 </node>
 <node TEXT="Bonjour &#xe0; tous, comme vous le savez, l&apos;un des principes de Solaris est que chaque cellule Solaris maintienne un annuaire des membres (infos de contact, comp&#xe9;tences pro/extra pro, ressources, besoins, etc...). Cet annuaire n est pas publique. Les r&#xe9;f&#xe9;rents de cellule en sont les gardiens et les seuls qui y ont acc&#xe8;s, et en sont les points d&apos;entr&#xe9;e. Pour int&#xe9;grer la cellule Solaris, il est n&#xe9;cessaire de retourner &#xe0; solaris64cotebasquenord@protonmail.com le formulaire t&#xe9;l&#xe9;chargeable ici (https://colibris.link/LFplT). Je vous invite &#xe0; renseigner le formulaire avec le maximum d&apos;informations permettant de comprendre vos atouts, vos besoins (une notice est disponible https://colibris.link/j1kZQ). Vous pouvez &#xe9;galement me retourner votre formulaire par MP, et je peux en cas exceptionnel remplir votre formulaire avec les informations que vous me communiquerez en priv&#xe9;. Merci d&apos;avance de votre collaboration." ID="ID_583894160" CREATED="1647601892238" MODIFIED="1647603024231"/>
 </node>
@@ -261,7 +256,8 @@
 <node TEXT="path" ID="ID_1243981011" CREATED="1647396607346" MODIFIED="1647396608959"/>
 </node>
 </node>
-<node TEXT="build_dir" ID="ID_832361267" CREATED="1647424171838" MODIFIED="1647424176160">
+<node TEXT="build_dir" ID="ID_832361267" CREATED="1647424171838" MODIFIED="1648108465198">
+<icon BUILTIN="button_cancel"/>
 <node TEXT="type" ID="ID_1306909228" CREATED="1647396565205" MODIFIED="1647396607062">
 <node TEXT="path" ID="ID_759739937" CREATED="1647396607346" MODIFIED="1647396608959"/>
 </node>
@@ -278,6 +274,9 @@
 <icon BUILTIN="very_positive"/>
 <node TEXT="personas.Coordinator" ID="ID_635592768" CREATED="1647396490480" MODIFIED="1647423015069"/>
 </node>
+<node TEXT="email" ID="ID_913017350" CREATED="1648020827252" MODIFIED="1648020839596"/>
+<node TEXT="telegram_channel" ID="ID_1271524675" CREATED="1648020839983" MODIFIED="1648020845403"/>
+<node TEXT="telegram_groups" ID="ID_1808578486" CREATED="1648020845773" MODIFIED="1648022099016"/>
 </node>
 </node>
 <node TEXT="RegionCell" ID="ID_1013160667" CREATED="1647159199483" MODIFIED="1647159228033">
@@ -361,6 +360,11 @@
 </node>
 <node TEXT="urls" ID="ID_46120739" CREATED="1564524510165" MODIFIED="1564562297599">
 <icon BUILTIN="mindmap"/>
+</node>
+<node TEXT="entry points" ID="ID_740169143" CREATED="1564524510165" MODIFIED="1586855445185">
+<icon BUILTIN="mindmap"/>
+<node TEXT="ngosolaris.cell.Cell" ID="ID_848565349" CREATED="1601121275946" MODIFIED="1648029231679"/>
+<node TEXT="ngosolaris.address_book.AddressBook" ID="ID_367214448" CREATED="1601121275946" MODIFIED="1648029222191"/>
 </node>
 </node>
 </node>

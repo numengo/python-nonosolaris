@@ -38,7 +38,7 @@ ADDR_BOOK_PAGE = str(ADDR_BOOK_PAGE.resolve()) if ADDR_BOOK_PAGE.exists()\
 
 
 class AddressBook(with_metaclass(SchemaMetaclass)):
-    _id = r"https://solaris-france.org#/$defs/AddressBook"
+    _id = r"https://solaris-france.org/nono#/$defs/AddressBook"
 
     def __init__(self, cell):
         ObjectProtocol.__init__(self)

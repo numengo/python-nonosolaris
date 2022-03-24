@@ -16,13 +16,13 @@ from ngoschema.protocols import with_metaclass, SchemaMetaclass
 
 
 class Member(with_metaclass(SchemaMetaclass)):
-    _id = r"https://solaris-france.org#/$defs/personas/$defs/Member"
+    _id = r"https://solaris-france.org/nono#/$defs/personas/$defs/Member"
 
 
 class Coordinator(with_metaclass(SchemaMetaclass)):
-    _id = r"https://solaris-france.org#/$defs/personas/$defs/Coordinator"
+    _id = r"https://solaris-france.org/nono#/$defs/personas/$defs/Coordinator"
 
 
 class Administrator(with_metaclass(SchemaMetaclass)):
-    _id = r"https://solaris-france.org#/$defs/personas/$defs/Administrator"
+    _id = r"https://solaris-france.org/nono#/$defs/personas/$defs/Administrator"
 

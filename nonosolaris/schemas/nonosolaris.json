@@ -1,7 +1,7 @@
 {
-  "$id": "https://solaris-france.org#",
+  "$id": "https://solaris-france.org/nono#",
   "type": "object",
-  "$comment": "automatically generated for Solaris",
+  "$comment": "automatically generated for NonoSolaris",
   "$defs": {
     "Cell": {
       "type": "object",
@@ -10,9 +10,6 @@
           "type": "string"
         },
         "cell_dir": {
-          "type": "path"
-        },
-        "build_dir": {
           "type": "path"
         },
         "members": {
@@ -32,6 +29,15 @@
           "items": {
             "$ref": "#/$defs/personas/$defs/Coordinator"
           }
+        },
+        "email": {
+          "type": "string"
+        },
+        "telegram_channel": {
+          "type": "string"
+        },
+        "telegram_groups": {
+          "type": "string"
         }
       }
     },

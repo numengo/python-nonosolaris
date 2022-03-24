@@ -102,7 +102,7 @@ setup(
     package_data=get_package_data(package),
     include_package_data=True,
     zip_safe=False,
-    keywords=["solaris", " contact book", " annuaire", " telegram"],
+    keywords=["solaris", "nono", " contact book", " annuaire", " telegram"],
     setup_requires=setup_requires,
     install_requires=install_requires,
     tests_require=test_requires,
