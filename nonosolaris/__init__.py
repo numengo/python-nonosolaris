@@ -7,7 +7,9 @@ __email__ = 'roman@numengo.com'
 __version__ = '1.1.1'
 
 from simple_settings import LazySettings
-settings = LazySettings('nonosolaris.config.settings')
+from ngoschema.config.utils import search_app_config_files
+
+settings = LazySettings('nonosolaris.config.settings', *search_app_config_files('NonoSolaris', 'solaris'))
 
 # PROTECTED REGION ID(nonosolaris.init) ENABLED START
 from ngoschema.loaders import register_module

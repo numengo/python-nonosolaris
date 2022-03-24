@@ -12,6 +12,12 @@
         "cell_dir": {
           "type": "path"
         },
+        "build_dir": {
+          "type": "path"
+        },
+        "member_dir": {
+          "type": "path"
+        },
         "members": {
           "type": "array",
           "items": {
@@ -71,6 +77,9 @@
     },
     "AddressBook": {
       "type": "object",
+      "required": [
+        "cell"
+      ],
       "properties": {
         "cell": {
           "$ref": "#/$defs/Cell"
@@ -84,13 +93,16 @@
         "build_ed_dir": {
           "type": "path"
         },
-        "forms_updated_dir": {
+        "edition_fp": {
+          "type": "path"
+        },
+        "pages_dir": {
           "type": "path"
         },
         "index_fp": {
           "type": "path"
         },
-        "edition_fp": {
+        "forms_updated_dir": {
           "type": "path"
         }
       }

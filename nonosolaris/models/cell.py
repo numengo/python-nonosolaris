@@ -29,16 +29,11 @@ from .personas import Member, Administrator, Coordinator
 class Cell(with_metaclass(SchemaMetaclass)):
     _id = r"https://solaris-france.org/nono#/$defs/Cell"
 
-    def __init__(self, cell_id, cell_dir, **kwargs):
-        ObjectProtocol.__init__(self)
-        self.cell_id = cell_id
-        self.cell_dir = cell_dir if isinstance(cell_dir, Path) else Path(cell_dir)
-        self.cell_dir = self.cell_dir.expanduser().resolve()
-        self.member_dir = self.cell_dir.joinpath(settings.MEMBER_DIR)
-        self.members = []
-        self.build_dir = self.cell_dir.joinpath(settings.BUILD_DIR)
-        # load members
-        self.load_members()
+    def set_cell_dir(self, cell_dir):
+        cell_dir = cell_dir.expanduser().resolve()
+        self._set_data('cell_dir', cell_dir)
+        self.member_dir = cell_dir.joinpath(settings.MEMBER_DIRNAME)
+        self.build_dir = cell_dir.joinpath(settings.BUILD_DIRNAME)
 
     def _read_members(self, member_dir):
         members = []

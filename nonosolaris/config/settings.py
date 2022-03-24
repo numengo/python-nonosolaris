@@ -3,9 +3,11 @@
 CELL_ID = 'Côte Basque Nord 64'
 
 # directories
-CELL_DIR = '~/Solaris'
-MEMBER_DIR = 'fiches'
-BUILD_DIR = 'build'
+SOLARIS_DIR = '~/Solaris'
+SOLARIS_FILENAME = 'solaris.nono'
+MEMBER_DIRNAME = 'fiches'
+BUILD_DIRNAME = 'build'
+FORMS_DIRNAME = 'forms'
 
 # templates
 FORM_PAGE = 'templates/formulaire_annuaire_v1.0.pdf'

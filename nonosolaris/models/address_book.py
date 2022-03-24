@@ -29,28 +29,29 @@ FORM_PAGE = Path(settings.FORM_PAGE)
 COVER_PAGE = Path(settings.COVER_PAGE)
 ADDR_BOOK_PAGE = Path(settings.ADDR_BOOK_PAGE)
 
+ROOT_DIR = Path(__file__).parent.parent
+
 FORM_PAGE = str(FORM_PAGE.resolve()) if FORM_PAGE.exists()\
-    else str(Path(__file__).parent.joinpath(settings.FORM_PAGE).resolve())
+    else str(ROOT_DIR.joinpath(settings.FORM_PAGE).resolve())
 COVER_PAGE = str(COVER_PAGE.resolve()) if COVER_PAGE.exists()\
-    else str(Path(__file__).parent.joinpath(settings.COVER_PAGE).resolve())
+    else str(ROOT_DIR.joinpath(settings.COVER_PAGE).resolve())
 ADDR_BOOK_PAGE = str(ADDR_BOOK_PAGE.resolve()) if ADDR_BOOK_PAGE.exists()\
-    else str(Path(__file__).parent.joinpath(settings.ADDR_BOOK_PAGE).resolve())
+    else str(ROOT_DIR.joinpath(settings.ADDR_BOOK_PAGE).resolve())
 
 
 class AddressBook(with_metaclass(SchemaMetaclass)):
     _id = r"https://solaris-france.org/nono#/$defs/AddressBook"
 
-    def __init__(self, cell):
-        ObjectProtocol.__init__(self)
-        self.cell = cell
-
+    def __init__(self, **kwargs):
+        ObjectProtocol.__init__(self, **kwargs)
+        cell = self.cell
         self.edition = f'{date.today().isoformat()}'
         self.edition_fmt = f'{date.today().strftime("%d/%m/%Y")}'
         self.edition_fp = cell.cell_dir.joinpath(f'annuaire-solaris-{cell.cell_id}-{self.edition}.pdf')
 
         build_dir = self.cell.build_dir
         self.build_ed_dir = build_ed_dir = build_dir.joinpath(self.edition)
-        self.forms_updated_dir = forms_updated_dir = build_ed_dir.joinpath('forms')
+        self.forms_updated_dir = forms_updated_dir = build_ed_dir.joinpath(settings.FORMS_DIRNAME)
         self.index_fp = build_ed_dir.joinpath('index.pdf')
 
         if not build_dir.exists():

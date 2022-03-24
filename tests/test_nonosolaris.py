@@ -10,7 +10,7 @@ from nonosolaris.cli import cli
 
 def test_cli():
     runner = CliRunner()
-    result = runner.invoke(cli, ['annuaire'])
+    result = runner.invoke(cli, ['annuaire', 'init'])
     #assert result.output == 'Hello World!\n'
     assert result.exit_code == 0
 
@@ -22,15 +22,15 @@ def test_ngosolaris():
         cell_id='Cote Basque Nord 64',
         cell_dir='/Users/cedric/Devel/admin/SOLARIS/annuaire/cote_basque_nord',
     )
-    #cell.load_members()
-    addr_book = AddressBook(cell)
+    cell.load_members()
+    addr_book = AddressBook(cell=cell)
     addr_book.write_member_updated_forms()
     addr_book.write_edition()
 
 
 if __name__ == '__main__':
     # to run test file standalone
+    #test_ngosolaris()
     test_cli()
-    test_ngosolaris()
 
 # PROTECTED REGION END
