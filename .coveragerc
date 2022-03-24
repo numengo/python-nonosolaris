@@ -1,0 +1,16 @@
+[paths]
+source =
+   nonosolaris
+   */site-packages/nonosolaris
+
+[run]
+branch = true
+source =
+    nonosolaris
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*

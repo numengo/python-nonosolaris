@@ -1,0 +1,172 @@
+{
+  "$id": "https://solaris-france.org#",
+  "type": "object",
+  "$comment": "automatically generated for Solaris",
+  "$defs": {
+    "Cell": {
+      "type": "object",
+      "properties": {
+        "cell_id": {
+          "type": "string"
+        },
+        "cell_dir": {
+          "type": "path"
+        },
+        "build_dir": {
+          "type": "path"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/personas/$defs/Member"
+          }
+        },
+        "admins": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/personas/$defs/Administrator"
+          }
+        },
+        "coordinators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/personas/$defs/Coordinator"
+          }
+        }
+      }
+    },
+    "RegionCell": {
+      "type": "object",
+      "extends": [
+        "#/$defs/Cell"
+      ],
+      "properties": {
+        "cells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Cell"
+          }
+        }
+      }
+    },
+    "NationCell": {
+      "type": "object",
+      "extends": [
+        "#/$defs/RegionCell"
+      ],
+      "properties": {
+        "cells": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RegionCell"
+          }
+        }
+      }
+    },
+    "AddressBook": {
+      "type": "object",
+      "properties": {
+        "cell": {
+          "$ref": "#/$defs/Cell"
+        },
+        "edition": {
+          "type": "string"
+        },
+        "edition_fmt": {
+          "type": "string"
+        },
+        "build_ed_dir": {
+          "type": "path"
+        },
+        "forms_updated_dir": {
+          "type": "path"
+        },
+        "index_fp": {
+          "type": "path"
+        },
+        "edition_fp": {
+          "type": "path"
+        }
+      }
+    },
+    "personas": {
+      "type": "object",
+      "$defs": {
+        "Member": {
+          "type": "object",
+          "properties": {
+            "last_name": {
+              "type": "string"
+            },
+            "first_name": {
+              "type": "string"
+            },
+            "male_check": {
+              "type": "boolean"
+            },
+            "female_check": {
+              "type": "boolean"
+            },
+            "gender": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "birth_year": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "telegram_id": {
+              "type": "string"
+            },
+            "last_name_upper": {
+              "type": "string"
+            },
+            "city_upper": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "index_entry": {
+              "type": "string"
+            },
+            "index_city_entry": {
+              "type": "string"
+            },
+            "email_link": {
+              "type": "string"
+            },
+            "telegram_id_link": {
+              "type": "string"
+            },
+            "page_filename": {
+              "type": "string"
+            },
+            "form_orig_filepath": {
+              "type": "string"
+            },
+            "form_updated_filepath": {
+              "type": "string"
+            }
+          }
+        },
+        "Coordinator": {
+          "type": "object",
+          "extends": [
+            "#/$defs/personas/$defs/Member"
+          ]
+        },
+        "Administrator": {
+          "type": "object",
+          "extends": [
+            "#/$defs/personas/$defs/Member"
+          ]
+        }
+      }
+    }
+  }
+}
