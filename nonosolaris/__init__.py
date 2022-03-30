@@ -4,7 +4,7 @@
 
 __author__ = """Cedric ROMAN"""
 __email__ = 'roman@numengo.com'
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 
 from simple_settings import LazySettings
 from ngoschema.config.utils import search_app_config_files
