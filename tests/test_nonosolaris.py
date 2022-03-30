@@ -10,10 +10,18 @@ from nonosolaris.cli import cli
 
 def test_cli():
     runner = CliRunner()
-    result = runner.invoke(cli, ['annuaire', 'init'])
+    result = runner.invoke(cli, ['annuaire', 'init', 'compile'])
     #assert result.output == 'Hello World!\n'
     assert result.exit_code == 0
 
+def test_cli2():
+    from nonosolaris.commands import cmd_cell, cmd_address_book
+    runner = CliRunner()
+    #result = runner.invoke(cli, [])
+    result = runner.invoke(cli, ['cell'])
+    #result = runner.invoke(cli, ['cell', 'init'])
+    #assert result.output == 'Hello World!\n'
+    assert result.exit_code == 0
 
 def test_ngosolaris():
     from nonosolaris import Cell, AddressBook
@@ -31,6 +39,7 @@ def test_ngosolaris():
 if __name__ == '__main__':
     # to run test file standalone
     #test_ngosolaris()
-    test_cli()
+    #test_cli()
+    test_cli2()
 
 # PROTECTED REGION END

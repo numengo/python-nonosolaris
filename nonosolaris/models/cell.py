@@ -25,9 +25,38 @@ from .pdfrw_utils import get_form_fields, create_blank_page
 from .pdfrw_utils import ANNOT_KEY, SUBTYPE_KEY, WIDGET_SUBTYPE_KEY, ANNOT_FIELD_KEY, ANNOT_PARENT_KEY
 from .personas import Member, Administrator, Coordinator
 
+ROOT_DIR = Path(__file__).parent.parent
+
+FORM_PAGE = Path(settings.FORM_PAGE)
+FORM_PAGE = str(FORM_PAGE.resolve()) if FORM_PAGE.exists()\
+    else str(ROOT_DIR.joinpath(settings.FORM_PAGE).resolve())
+
 
 class Cell(with_metaclass(SchemaMetaclass)):
+    """Cellule SOLARIS
+
+    Permet le parametrage de la cellule (identifiant, email),
+    le parametrage du repertoire de travail contenant les fiches des membres,
+    le chargement des fiches des membres en memoire.
+
+    :param cell_id: identifiant de cellule.
+    :param email: protonmail de la cellule.
+    :param cell_dir: repertoire de travail de la cellule.
+    """
     _id = r"https://solaris-france.org/nono#/$defs/Cell"
+    _useContext = True
+
+    def __init__(self, _value=None, **opts):
+        """Initialise la cellule."""
+        ObjectProtocol.__init__(self, value=_value, **opts)
+
+    def view(self):
+        """Affiche les infos de la cellule."""
+        ret = ['{']
+        for k, v in self.do_serialize().items():
+            ret.append(f'\t{k}: {v}')
+        ret.append('}')
+        return '\n'.join(ret)
 
     def set_cell_dir(self, cell_dir):
         cell_dir = cell_dir.expanduser().resolve()
@@ -87,8 +116,20 @@ class Cell(with_metaclass(SchemaMetaclass)):
             m['PageField'] = ip = str(i + 1)
 
     def load_members(self, member_dir=None):
-        """load members data from a directory containing forms."""
+        """Charge les fiches des membres de la cellule en mémoire.
+
+        :param member_dir: repertoire contenant les fiches des membres
+        :return: self
+        """
         member_dir = member_dir or self.member_dir
         self.members += self._read_members(member_dir)
         self._sort_members()
         return self
+
+    def write_form(self):
+        """Crée une copie locale du formulaire"""
+        import shutil
+        form_fp1 = Path(FORM_PAGE)
+        form_fp2 = self.cell_dir.joinpath(form_fp1.name)
+        self._logger.info('CREATE FILE %s.' % form_fp2)
+        return form_fp2

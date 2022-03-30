@@ -5,18 +5,24 @@
   "$defs": {
     "Cell": {
       "type": "object",
+      "required": [
+        "cell_id"
+      ],
       "properties": {
         "cell_id": {
           "type": "string"
         },
         "cell_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "."
         },
         "build_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.cell_dir }}/build"
         },
         "member_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.cell_dir }}/fiches"
         },
         "members": {
           "type": "array",
@@ -37,10 +43,12 @@
           }
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "default": "{{this.cell_id|lower|replace(' ','')}}@protonmail.com"
         },
         "telegram_channel": {
-          "type": "string"
+          "type": "string",
+          "default": "@solaris_{{this.cell_id|lower|replace(' ','_')}}"
         },
         "telegram_groups": {
           "type": "string"
@@ -85,25 +93,32 @@
           "$ref": "#/$defs/Cell"
         },
         "edition": {
-          "type": "string"
+          "type": "string",
+          "default": "{{today.isoformat()}}"
         },
         "edition_fmt": {
-          "type": "string"
+          "type": "string",
+          "default": "{{this.edition}}"
         },
         "build_ed_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.cell.build_dir }}/{{this.edition}}"
         },
         "edition_fp": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.build_ed_dir }}/annuaire-solaris-{{this.cell.cell_id}}-{{this.edition}}.pdf"
         },
         "pages_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.build_ed_dir }}/pages"
         },
         "index_fp": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.build_ed_dir }}/index.pdf"
         },
         "forms_updated_dir": {
-          "type": "path"
+          "type": "path",
+          "default": "{{ this.build_ed_dir }}/forms"
         }
       }
     },

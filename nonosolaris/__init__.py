@@ -15,7 +15,13 @@ settings = LazySettings('nonosolaris.config.settings', *search_app_config_files(
 from ngoschema.loaders import register_module
 register_module('nonosolaris')
 
-from .nonosolaris import *
+from ngoschema import DEFAULT_CONTEXT, APP_CONTEXT
+DEFAULT_CONTEXT.add_local_entries(**getattr(settings, 'DEFAULT_CONTEXT', {}))
+# in init, settings are available in app context whereas it is in default context in cli
+APP_CONTEXT.add_local_entries(settings=settings, _nonosolaris_env=settings.as_dict())
+
+from ._nonosolaris import *
+
 __all__ = [
     'settings',
 ]

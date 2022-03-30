@@ -23,16 +23,27 @@ import click
 from ngoschema.cli import ComplexCLI, base_cli, run_cli
 
 # PROTECTED REGION ID(nonosolaris.cli) ENABLED START
+# https://www.dailymotion.com/video/x3a0ef9
+from pathlib import Path
+from ngoschema import APP_CONTEXT, DEFAULT_CONTEXT
+from nonosolaris.config import settings
+from nonosolaris.ascii_art import banner_nono, banner_solaris
 
-CONTEXT_SETTINGS = dict(auto_envvar_prefix="NONOSOLARIS")
+CONTEXT_SETTINGS = dict(auto_envvar_prefix="NONOSOLARIS", show_default=True)
 CMD_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), "commands"))
+
+# in init, settings are available in app context whereas it is in default context in cli
+DEFAULT_CONTEXT.add_local_entries(settings=settings, **getattr(settings, 'DEFAULT_CONTEXT', {}))
+APP_CONTEXT.add_local_entries(_ngoci_env=settings, config_filename=settings.SOLARIS_FILENAME)
 
 cli = click.command(
     cls=ComplexCLI,
     name='nonosolaris',
     module_name='nonosolaris',
+    banner=banner_nono,
     cmd_folder=CMD_FOLDER,
-    help="Nono, le petit robot d'assistance a l entraide humaine",
+    help=settings.BOT_TITLE,
+    no_args_is_help=True,
     context_settings=CONTEXT_SETTINGS)(base_cli)
 
 if __name__ == "__main__":

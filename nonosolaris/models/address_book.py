@@ -25,11 +25,11 @@ from .pdfrw_utils import get_form_fields, create_blank_page
 from .pdfrw_utils import ANNOT_KEY, SUBTYPE_KEY, WIDGET_SUBTYPE_KEY, ANNOT_FIELD_KEY, ANNOT_PARENT_KEY
 from .cell import Cell
 
+ROOT_DIR = Path(__file__).parent.parent
+
 FORM_PAGE = Path(settings.FORM_PAGE)
 COVER_PAGE = Path(settings.COVER_PAGE)
 ADDR_BOOK_PAGE = Path(settings.ADDR_BOOK_PAGE)
-
-ROOT_DIR = Path(__file__).parent.parent
 
 FORM_PAGE = str(FORM_PAGE.resolve()) if FORM_PAGE.exists()\
     else str(ROOT_DIR.joinpath(settings.FORM_PAGE).resolve())
@@ -40,9 +40,19 @@ ADDR_BOOK_PAGE = str(ADDR_BOOK_PAGE.resolve()) if ADDR_BOOK_PAGE.exists()\
 
 
 class AddressBook(with_metaclass(SchemaMetaclass)):
+    """Annuaire SOLARIS
+
+    Permet l'édition des annuaires d une cellule. L'annuaire s initialise
+    à partir d une cellule dont les fiches des membres ont été chargés.
+    L'annuaire permet de compiler un annuaire indexé à partir des fiches individuelles des membres
+    en gardant une tracabilité des versions.
+    L'annuaire permet également de mettre à jour les fiches au dernier format.
+    """
     _id = r"https://solaris-france.org/nono#/$defs/AddressBook"
+    _useContext = True
 
     def __init__(self, **kwargs):
+        """Initialise l annuaire et crée les répertoires de sortie."""
         ObjectProtocol.__init__(self, **kwargs)
         cell = self.cell
         self.edition = f'{date.today().isoformat()}'
@@ -60,14 +70,6 @@ class AddressBook(with_metaclass(SchemaMetaclass)):
         if not build_ed_dir.exists():
             os.makedirs(str(build_ed_dir))
             self._logger.info('CREATE DIRECTORY %s.' % build_ed_dir)
-
-    def write_form(self):
-        """create a local copy of the form"""
-        import shutil
-        form_fp1 = Path(FORM_PAGE)
-        form_fp2 = self.cell.cell_dir.joinpath(form_fp1.name)
-        self._logger.info('CREATE FILE %s.' % form_fp2)
-        return form_fp2
 
     def _write_member_pages(self):
         pages_dir = self.build_ed_dir.joinpath('pages')

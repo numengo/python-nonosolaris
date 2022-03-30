@@ -1,6 +1,16 @@
+# Bot title
+BOT_TITLE = "Nono, le petit robot d'assistance a l entraide humaine"
+
+DEFAULT_CONTEXT = {
+    'cell_id': 'Côte Basque Nord 64',
+    'email': 'solaris64cotebasquenord@protonmail.com',
+    'cell': {
+    #    'cell_id': 'Côte Basque Nord 64'
+    }
+}
 
 # config settings
-CELL_ID = 'Côte Basque Nord 64'
+#CELL_ID = 'Côte Basque Nord 64'
 
 # directories
 SOLARIS_DIR = '~/Solaris'
