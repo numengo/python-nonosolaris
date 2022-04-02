@@ -26,7 +26,7 @@ project = 'NonoSolaris'
 year = '2022'
 author = 'Cedric R, 64 CB Nord'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '1.1.2'
+version = release = '1.1.3'
 
 pygments_style = 'trac'
 templates_path = ['.']

@@ -4,7 +4,7 @@
 
 __author__ = """Cedric ROMAN"""
 __email__ = 'roman@numengo.com'
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 ## PROTECTED REGION ID(nonosolaris.init) ENABLED START
 
