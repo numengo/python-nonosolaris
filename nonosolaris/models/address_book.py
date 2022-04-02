@@ -13,17 +13,17 @@ import pdfrw, pdfrw.errors, pdfrw.objects, pdfrw.objects.pdfname
 
 from ngoschema.protocols import with_metaclass, SchemaMetaclass, ObjectProtocol
 
-from reportlab.platypus import PageTemplate, BaseDocTemplate, SimpleDocTemplate, Frame
-from reportlab.platypus import NextPageTemplate, Paragraph, PageBreak, Spacer
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.platypus import SimpleDocTemplate
+from reportlab.platypus import Paragraph, PageBreak, Spacer
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase.pdfmetrics import stringWidth
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.enums import TA_JUSTIFY
 
 from .. import settings
-from .pdfrw_utils import get_form_fields, create_blank_page
+from .pdfrw_utils import create_blank_page
 from .pdfrw_utils import ANNOT_KEY, SUBTYPE_KEY, WIDGET_SUBTYPE_KEY, ANNOT_FIELD_KEY, ANNOT_PARENT_KEY
-from .cell import Cell
+from .cells import Cell
 
 ROOT_DIR = Path(__file__).parent.parent
 
@@ -55,24 +55,13 @@ class AddressBook(with_metaclass(SchemaMetaclass)):
         """Initialise l annuaire et crée les répertoires de sortie."""
         ObjectProtocol.__init__(self, **kwargs)
         cell = self.cell
-        self.edition = f'{date.today().isoformat()}'
-        self.edition_fmt = f'{date.today().strftime("%d/%m/%Y")}'
-        self.edition_fp = cell.cell_dir.joinpath(f'annuaire-solaris-{cell.cell_id}-{self.edition}.pdf')
-
         build_dir = self.cell.build_dir
-        self.build_ed_dir = build_ed_dir = build_dir.joinpath(self.edition)
-        self.forms_updated_dir = forms_updated_dir = build_ed_dir.joinpath(settings.FORMS_DIRNAME)
-        self.index_fp = build_ed_dir.joinpath('index.pdf')
-
         if not build_dir.exists():
             os.makedirs(str(build_dir))
             self._logger.info('CREATE DIRECTORY %s.' % build_dir)
-        if not build_ed_dir.exists():
-            os.makedirs(str(build_ed_dir))
-            self._logger.info('CREATE DIRECTORY %s.' % build_ed_dir)
 
     def _write_member_pages(self):
-        pages_dir = self.build_ed_dir.joinpath('pages')
+        pages_dir = self.build_ed_dir.joinpath(settings.PAGES_DIRNAME)
         if not pages_dir.exists():
             os.makedirs(str(pages_dir))
             self._logger.info('CREATE DIRECTORY %s.' % pages_dir)
@@ -312,14 +301,18 @@ class AddressBook(with_metaclass(SchemaMetaclass)):
         return self
 
     def write_edition(self):
-        """compile the address book, timestamped and indexed."""
+        """Compile un annuaire daté et indexé."""
+        build_ed_dir = self.build_ed_dir
+        if not build_ed_dir.exists():
+            os.makedirs(str(build_ed_dir))
+            self._logger.info('CREATE DIRECTORY %s.' % build_ed_dir)
         self._write_member_pages()
         self._write_index()
         self._compile_write()
         return self.edition_fp
 
     def write_member_updated_forms(self):
-        """update all existing member forms"""
+        """Mise à jour des formulaires de membres de la cellule."""
         forms_dir = self.forms_updated_dir
         if not forms_dir.exists():
             os.makedirs(str(forms_dir))

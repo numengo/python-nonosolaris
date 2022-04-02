@@ -72,10 +72,23 @@ To install, with the command line::
 
     pip install nonosolaris
 
+Then initialize your cell::
+
+    $ nonosolaris cell init
+
+You can now generate the address book from the pdf forms::
+
+    $ nonosolaris addressbook write-edition
+
+You might want to update all member forms to the latest version of the form template::
+
+    $ nonosolaris addressbook write-member-updated-forms
+
+
 Settings are managed using
 `simple-settings <https://github.com/drgarcia1986/simple-settings>`__
 and can be overriden with configuration files (cfg, yaml, json) or with environment variables
-prefixed with NGOSOLARIS_.
+prefixed with NONOSOLARIS_.
 
 Documentation
 =============

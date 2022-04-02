@@ -43,7 +43,7 @@ class Cell(with_metaclass(SchemaMetaclass)):
     :param email: protonmail de la cellule.
     :param cell_dir: repertoire de travail de la cellule.
     """
-    _id = r"https://solaris-france.org/nono#/$defs/Cell"
+    _id = r"https://solaris-france.org/nono#/$defs/cells/$defs/Cell"
     _useContext = True
 
     def __init__(self, _value=None, **opts):
@@ -57,12 +57,6 @@ class Cell(with_metaclass(SchemaMetaclass)):
             ret.append(f'\t{k}: {v}')
         ret.append('}')
         return '\n'.join(ret)
-
-    def set_cell_dir(self, cell_dir):
-        cell_dir = cell_dir.expanduser().resolve()
-        self._set_data('cell_dir', cell_dir)
-        self.member_dir = cell_dir.joinpath(settings.MEMBER_DIRNAME)
-        self.build_dir = cell_dir.joinpath(settings.BUILD_DIRNAME)
 
     def _read_members(self, member_dir):
         members = []
@@ -129,7 +123,8 @@ class Cell(with_metaclass(SchemaMetaclass)):
     def write_form(self):
         """Crée une copie locale du formulaire"""
         import shutil
-        form_fp1 = Path(FORM_PAGE)
-        form_fp2 = self.cell_dir.joinpath(form_fp1.name)
+        form_fp1 = FORM_PAGE
+        form_fp2 = self.cell_dir.joinpath(form_fp1.name).resolve()
+        shutil.copy(str(form_fp1), str(form_fp2))
         self._logger.info('CREATE FILE %s.' % form_fp2)
         return form_fp2

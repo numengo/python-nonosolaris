@@ -1,5 +1,5 @@
 from .personas import *
-from .cell import *
+from .cells import *
 from .address_book import *
 
 __all__ = [
