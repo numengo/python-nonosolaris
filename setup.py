@@ -70,7 +70,7 @@ setup_requires = [
 install_requires = [
     'future',
     'click',
-    'ngoschema>=1.0.8',
+    'ngoschema>=1.0.9',
     'reportlab',
     'pdfrw',
 ]
