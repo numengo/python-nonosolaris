@@ -72,18 +72,21 @@ To install, with the command line::
 
     pip install nonosolaris
 
-Then initialize your cell::
+To show the help on any command, call it without argument::
+
+    $ nonosolaris
+
+In a directory where you will have create a folder 'fiches' containing all registration forms, start by initializing your cell::
 
     $ nonosolaris cell init
 
 You can now generate the address book from the pdf forms::
 
-    $ nonosolaris addressbook write-edition
+    $ nonosolaris address-book write-edition
 
 You might want to update all member forms to the latest version of the form template::
 
-    $ nonosolaris addressbook write-member-updated-forms
-
+    $ nonosolaris address-book write-member-updated-forms
 
 Settings are managed using
 `simple-settings <https://github.com/drgarcia1986/simple-settings>`__

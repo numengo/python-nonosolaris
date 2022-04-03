@@ -5,10 +5,11 @@ import click
 import gettext
 import os
 
+from ngoschema.cli import pass_environment, ComplexGroup
+
 
 #### PROTECTED REGION ID(nonosolaris.commands.cmd_address_book.imports) ENABLED START
 from .. import DEFAULT_CONTEXT, APP_CONTEXT
-from ngoschema.cli import pass_environment, ComplexGroup
 from nonosolaris.models.address_book import AddressBook
 
 # loads locally defined context file if in execution folder
@@ -22,7 +23,7 @@ os.environ.setdefault('NONOSOLARIS_ADDRESSBOOK_EDITION_FMT', addressbook.items_s
 _ = gettext.gettext
 
 
-@click.group('addressbook', cls=ComplexGroup, help=AddressBook.__doc__, chain=True)
+@click.group('address-book', cls=ComplexGroup, help=ComplexGroup.format_docstring(AddressBook.__doc__, arguments=True), chain=True)
 @pass_environment
 def cli(ctx):
     __doc__ = AddressBook.__doc__
@@ -40,7 +41,7 @@ def cli(ctx):
     #### PROTECTED REGION END
 
 
-@cli.command('init', help=AddressBook.__init__.__doc__)
+@cli.command('init', help=ComplexGroup.format_docstring(AddressBook.__init__.__doc__))
 @click.option('--edition', default=lambda: os.environ.get("NONOSOLARIS_ADDRESSBOOK_EDITION"))
 @click.option('--edition-fmt', default=lambda: os.environ.get("NONOSOLARIS_ADDRESSBOOK_EDITION_FMT"))
 @pass_environment
@@ -60,7 +61,7 @@ def init(ctx, edition, edition_fmt):
     #### PROTECTED REGION END
 
 
-@cli.command('write-edition', help=AddressBook.write_edition.__doc__)
+@cli.command('write-edition', help=ComplexGroup.format_docstring(AddressBook.write_edition.__doc__))
 @pass_environment
 def write_edition(ctx):
     __doc__ = AddressBook.write_edition.__doc__
@@ -72,7 +73,7 @@ def write_edition(ctx):
     #### PROTECTED REGION END
 
 
-@cli.command('write-member-updated-forms', help=AddressBook.write_member_updated_forms.__doc__)
+@cli.command('write-member-updated-forms', help=ComplexGroup.format_docstring(AddressBook.write_member_updated_forms.__doc__))
 @pass_environment
 def write_member_updated_forms(ctx):
     __doc__ = AddressBook.write_member_updated_forms.__doc__

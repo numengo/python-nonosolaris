@@ -55,6 +55,9 @@ class AddressBook(with_metaclass(SchemaMetaclass)):
         """Initialise l annuaire et crée les répertoires de sortie."""
         ObjectProtocol.__init__(self, **kwargs)
         cell = self.cell
+        # if cell is defined but members not loaded, time to do it
+        if cell and not cell.members:
+            cell.load_members()
         build_dir = self.cell.build_dir
         if not build_dir.exists():
             os.makedirs(str(build_dir))

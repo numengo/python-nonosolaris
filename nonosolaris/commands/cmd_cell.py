@@ -5,10 +5,11 @@ import click
 import gettext
 import os
 
+from ngoschema.cli import pass_environment, ComplexGroup
+
 
 #### PROTECTED REGION ID(nonosolaris.commands.cmd_cell.imports) ENABLED START
 from .. import DEFAULT_CONTEXT, APP_CONTEXT
-from ngoschema.cli import pass_environment, ComplexGroup
 from nonosolaris.models.cells import Cell
 
 # loads locally defined context file if in execution folder
@@ -22,7 +23,7 @@ os.environ.setdefault('NONOSOLARIS_CELL_CELL_ID', cell.items_serialize('cell_id'
 _ = gettext.gettext
 
 
-@click.group('cell', cls=ComplexGroup, help=Cell.__doc__, chain=True)
+@click.group('cell', cls=ComplexGroup, help=ComplexGroup.format_docstring(Cell.__doc__, arguments=True), chain=True)
 @pass_environment
 def cli(ctx):
     __doc__ = Cell.__doc__
@@ -40,7 +41,7 @@ def cli(ctx):
     #### PROTECTED REGION END
 
 
-@cli.command('init', help=Cell.__init__.__doc__)
+@cli.command('init', help=ComplexGroup.format_docstring(Cell.__init__.__doc__))
 @click.option('--cell-id', default=lambda: os.environ.get("NONOSOLARIS_CELL_CELL_ID"), prompt=True, prompt_required=True)
 @click.option('--cell-dir', default=lambda: os.environ.get("NONOSOLARIS_CELL_CELL_DIR"), type=click.Path())
 @click.option('--email')
@@ -63,7 +64,7 @@ def init(ctx, cell_id, cell_dir, email, telegram_channel):
     #### PROTECTED REGION END
 
 
-@cli.command('view', help=Cell.view.__doc__)
+@cli.command('view', help=ComplexGroup.format_docstring(Cell.view.__doc__))
 @pass_environment
 def view(ctx):
     __doc__ = Cell.view.__doc__
@@ -75,7 +76,7 @@ def view(ctx):
     #### PROTECTED REGION END
 
 
-@cli.command('load-members', help=Cell.load_members.__doc__)
+@cli.command('load-members', help=ComplexGroup.format_docstring(Cell.load_members.__doc__))
 @click.option('--member-dir', default=None)
 @pass_environment
 def load_members(ctx, member_dir):
@@ -88,7 +89,7 @@ def load_members(ctx, member_dir):
     #### PROTECTED REGION END
 
 
-@cli.command('write-form', help=Cell.write_form.__doc__)
+@cli.command('write-form', help=ComplexGroup.format_docstring(Cell.write_form.__doc__))
 @pass_environment
 def write_form(ctx):
     __doc__ = Cell.write_form.__doc__
