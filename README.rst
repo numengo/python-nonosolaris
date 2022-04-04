@@ -70,9 +70,7 @@ Ce référent peut ensuite imprimer 3 exemplaires papiers identiques et les reme
 Il est possible d actionner NonoSolaris sur une clé usb stockant les fiches des membres et
 déconnectée du réseau, pour le temps de l opération.
 
-`ici <https://raw.githubusercontent.com/numengo/python-nonosolaris/main/nonosolaris/templates/formulaire_annuaire_v1.0.pdf>`__
-
-.. figure:: https://raw.githubusercontent.com/numengo/python-nonosolaris/main/nono.jpg
+.. figure:: nono.jpg
    :scale: 50 %
    :alt: Salut! c est moi! Nono!
 
