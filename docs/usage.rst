@@ -6,7 +6,7 @@ Nono, le petit robot d'assistance a l entraide humaine.
 
 NonoSolaris permet de compiler les annuaires des cellules Solaris qui le souhaitent.
 Un référent collecte les formulaires remplis par les membres (disponible
-`ici <https://github.com/numengo/python-nonosolaris/blob/main/nonosolaris/templates/formulaire_annuaire_v1.0.pdf>`__)
+`ici <https://raw.githubusercontent.com/numengo/python-nonosolaris/main/nonosolaris/templates/formulaire_annuaire_v1.0.pdf>`__)
 , les copie dans un repertoire, et NonoSolaris génèrera un annuaire mis en forme, daté et indexé
 
 ::
