@@ -40,9 +40,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/nonosolaris
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/numengo/python-nonosolaris/v1.1.7.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/numengo/python-nonosolaris/v1.1.8.svg
     :alt: Commits since latest release
-    :target: https://github.com/numengo/python-nonosolaris/compare/v1.1.7...master
+    :target: https://github.com/numengo/python-nonosolaris/compare/v1.1.8...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/nonosolaris.svg
     :alt: PyPI Wheel
