@@ -139,7 +139,7 @@
 <edge COLOR="#0000ff"/>
 <node TEXT="Cedric ROMAN" ID="ID_1625049955" CREATED="1564512868837" MODIFIED="1564513399553" LINK="mailto:%7B%7Bcookiecutter.email%7D%7D"/>
 </node>
-<node TEXT="documentation" POSITION="right" ID="ID_10359407" CREATED="1564512049272" MODIFIED="1564562378591" LINK="%7B%7Bcookiecutter.repo_name%7D%7D/README.rst">
+<node TEXT="documentation" FOLDED="true" POSITION="right" ID="ID_10359407" CREATED="1564512049272" MODIFIED="1564562378591" LINK="%7B%7Bcookiecutter.repo_name%7D%7D/README.rst">
 <icon BUILTIN="help"/>
 <edge COLOR="#7c7c00"/>
 <node TEXT="https://github.com/pysal/spopt" ID="ID_850136173" CREATED="1635152405604" MODIFIED="1635152405604" LINK="https://github.com/pysal/spopt"/>

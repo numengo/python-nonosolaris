@@ -24,7 +24,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 project = 'NonoSolaris'
 year = '2022'
-author = 'Cedric R, 64 CB Nord'
+author = 'Cedric R, 64 Hayet'
 copyright = '{0}, {1}'.format(year, author)
 version = release = '1.1.7'
 

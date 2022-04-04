@@ -27,8 +27,7 @@ def test_ngosolaris():
     from nonosolaris import Cell, AddressBook
     # assert solaris
     cell = Cell(
-        cell_id='Cote Basque Nord 64',
-        cell_dir='/Users/cedric/Devel/admin/SOLARIS/annuaire/cote_basque_nord',
+        cell_id='Ma Cellule'
     )
     cell.load_members()
     addr_book = AddressBook(cell=cell)

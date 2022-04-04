@@ -70,11 +70,12 @@ Ce référent peut ensuite imprimer 3 exemplaires papiers identiques et les reme
 Il est possible d actionner NonoSolaris sur une clé usb stockant les fiches des membres et
 déconnectée du réseau, pour le temps de l opération.
 
+
 .. figure:: nono.jpg
    :scale: 50 %
    :alt: Salut! c est moi! Nono!
 
-   Fait bénévolement, dans le seul objectif d'être utile. Cellule Hayet pour SOLARIS 64
+    Cadeau de la cellule Solaris Hayet 64. Fait bénévolement, dans le seul objectif d'être utile.
 
 
 * Free software: GNU General Public License v3
