@@ -40,9 +40,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/nonosolaris
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/numengo/python-nonosolaris/v1.1.7.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/numengo/python-nonosolaris/v1.1.8.svg
     :alt: Commits since latest release
-    :target: https://github.com/numengo/python-nonosolaris/compare/v1.1.7...master
+    :target: https://github.com/numengo/python-nonosolaris/compare/v1.1.8...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/nonosolaris.svg
     :alt: PyPI Wheel
@@ -75,7 +75,7 @@ déconnectée du réseau, pour le temps de l opération.
    :scale: 50 %
    :alt: Salut! c est moi! Nono!
 
-    Cadeau de la cellule Solaris Hayet 64. Fait bénévolement, dans le seul objectif d'être utile.
+   Cadeau de la cellule Solaris Hayet 64. Fait bénévolement, dans le seul objectif d'être utile.
 
 
 * Free software: GNU General Public License v3
